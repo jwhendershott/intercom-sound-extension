@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Toggle Button Sound",
+  "version": "1.0",
+  "description": "Plays a sound when a button is toggled on or off.",
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["sounds/on.mp3", "sounds/off.mp3"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
